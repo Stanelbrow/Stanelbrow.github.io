@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Poster Interactivo - Principio de Incertidumbre</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#020617;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    padding:20px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+.header p{
+    opacity:0.8;
+    max-width:900px;
+    margin:auto;
+    line-height:1.5;
+}
+
+.poster-container{
+    position:relative;
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.poster{
+    width:100%;
+    border-radius:18px;
+    display:block;
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+/* ===========================
+   HOTSPOTS
+=========================== */
+
+.hotspot{
+    position:absolute;
+    border:2px solid rgba(255,255,255,0.7);
+    border-radius:14px;
+
+    background:rgba(59,130,246,0.15);
+
+    backdrop-filter:blur(4px);
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+.hotspot:hover{
+    transform:scale(1.03);
+    background:rgba(59,130,246,0.35);
+}
+
+/* SUPERPOSICION */
+.hotspot-classical{
+    top:30%;
+    left:7%;
+    width:35%;
+    height:18%;
+}
+
+/* SCHRODINGER */
+.hotspot-quantum{
+    top:52%;
+    left:7%;
+    width:38%;
+    height:22%;
+}
+
+/* RESULTADOS */
+.hotspot-results{
+    top:76%;
+    left:6%;
+    width:40%;
+    height:12%;
+}
+
+/* QR / SIMULACION */
+.hotspot-sim{
+    top:80%;
+    left:73%;
+    width:18%;
+    height:12%;
+}
+
+/* ===========================
+   MODAL
+=========================== */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.7);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:1000;
+}
+
+.modal-content{
+
+    background:#0f172a;
+
+    width:min(900px,95%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    position:relative;
+
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+
+    font-size:2rem;
+    cursor:pointer;
+}
+
+.modal h2{
+    margin-bottom:20px;
+}
+
+.modal p{
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.modal a{
+    color:#60a5fa;
+}
+
+.code-box{
+    background:#111827;
+    padding:15px;
+    border-radius:12px;
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+button{
+    background:#2563eb;
+    border:none;
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    margin-top:15px;
+}
+
+button:hover{
+    background:#3b82f6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>
+        Fundamentos matemáticos del principio de incertidumbre
+    </h1>
+
+    <p>
+        Versión interactiva del póster.
+        Haz click sobre las regiones resaltadas para acceder
+        a explicaciones, derivaciones, simulaciones y código.
+    </p>
+
+</div>
+
+<div class="poster-container">
+
+    <!-- TU POSTER -->
+    <img src="poster.png" class="poster">
+
+    <!-- HOTSPOTS -->
+
+    <div class="hotspot hotspot-classical"
+         onclick="openModal('classical')">
+    </div>
+
+    <div class="hotspot hotspot-quantum"
+         onclick="openModal('quantum')">
+    </div>
+
+    <div class="hotspot hotspot-results"
+         onclick="openModal('results')">
+    </div>
+
+    <div class="hotspot hotspot-sim"
+         onclick="openModal('simulation')">
+    </div>
+
+</div>
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            &times;
+        </span>
+
+        <div id="modal-body">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const content = {
+
+classical: `
+
+<h2>Superposición clásica de ondas</h2>
+
+<p>
+La deducción clásica parte de la interferencia de dos ondas
+armónicas con números de onda ligeramente distintos.
+</p>
+
+<p>
+
+\\[
+y(x,t)=y_0\\cos(k_1x-\\omega_1 t)
++y_0\\cos(k_2x-\\omega_2 t)
+\\]
+
+</p>
+
+<p>
+
+Usando identidades trigonométricas aparece una envolvente:
+
+\\[
+y(x,t)=
+2y_0
+\\cos\\left(
+\\frac{\\Delta k}{2}x
+-
+\\frac{\\Delta \\omega}{2}t
+\\right)
+\\cos(\\bar{k}x-\\bar{\\omega}t)
+\\]
+
+</p>
+
+<p>
+
+La amplitud modulada genera un paquete de ondas.
+Mientras más localizado esté el paquete,
+más amplio será el rango de valores de \\(k\\).
+
+</p>
+
+<p>
+
+Esto lleva naturalmente a:
+
+\\[
+\\Delta x \\Delta k \\sim 1
+\\]
+
+y usando:
+
+\\[
+p = \\hbar k
+\\]
+
+se obtiene:
+
+\\[
+\\Delta x \\Delta p \\sim \\hbar
+\\]
+
+</p>
+
+`,
+
+quantum: `
+
+<h2>Paquete de ondas cuántico</h2>
+
+<p>
+
+La ecuación de Schrödinger para una partícula libre es:
+
+\\[
+i\\hbar \\frac{\\partial \\Psi}{\\partial t}
+=
+-
+\\frac{\\hbar^2}{2m}
+\\frac{\\partial^2 \\Psi}{\\partial x^2}
+\\]
+
+</p>
+
+<p>
+
+Las ondas planas:
+
+\\[
+\\Psi(x,t)=Ae^{i(kx-\\omega t)}
+\\]
+
+tienen momento bien definido pero no representan
+partículas localizadas.
+
+</p>
+
+<p>
+
+Por eso se construyen paquetes de ondas mediante
+superposición de Fourier:
+
+\\[
+\\Psi(x)=
+\\frac{1}{\\sqrt{2\\pi}}
+\\int_{-\\infty}^{\\infty}
+\\Phi(k)e^{ikx}dk
+\\]
+
+</p>
+
+<p>
+
+Usando una distribución gaussiana:
+
+\\[
+\\Phi(k)=Ce^{-\\sigma_k^2(k-k_0)^2}
+\\]
+
+se obtiene:
+
+\\[
+\\sigma_x\\sigma_k=\\frac{1}{2}
+\\]
+
+y finalmente:
+
+\\[
+\\Delta x \\Delta p \\geq
+\\frac{\\hbar}{2}
+\\]
+
+</p>
+
+`,
+
+results: `
+
+<h2>Resultados numéricos</h2>
+
+<p>
+
+La simulación muestra que:
+
+</p>
+
+<ul>
+
+<li>
+\\(\\sigma_k\\) pequeño:
+paquete ancho en posición y momento localizado.
+</li>
+
+<li>
+\\(\\sigma_k\\) grande:
+paquete localizado en posición y momento disperso.
+</li>
+
+</ul>
+
+<p>
+
+Esto confirma computacionalmente el principio
+de incertidumbre.
+</p>
+
+<div class="code-box">
+
+<pre>
+
+# Ejemplo conceptual
+
+psi_k = np.exp(-(k-k0)**2/(2*sigma_k**2))
+
+psi_x = np.fft.ifft(psi_k)
+
+</pre>
+
+</div>
+
+`,
+
+simulation: `
+
+<h2>Simulación interactiva</h2>
+
+<p>
+
+Aquí pueden acceder a:
+
+</p>
+
+<ul>
+
+<li>Repositorio del proyecto</li>
+<li>Notebook de Colab</li>
+<li>Código Python</li>
+<li>Simulación interactiva</li>
+
+</ul>
+
+<p>
+
+<a href="https://github.com/"
+target="_blank">
+
+Abrir GitHub
+
+</a>
+
+</p>
+
+<p>
+
+<a href="https://colab.research.google.com/"
+target="_blank">
+
+Abrir Colab
+
+</a>
+
+</p>
+
+<button onclick="window.open('https://juandelgadore.github.io/Simulador-Cu-ntico/')">
+
+Abrir simulación
+
+</button>
+
+`
+
+};
+
+function openModal(section){
+
+    document.getElementById("modal").style.display="flex";
+
+    document.getElementById("modal-body").innerHTML =
+    content[section];
+
+    MathJax.typeset();
+}
+
+function closeModal(){
+
+    document.getElementById("modal").style.display="none";
+}
+
+window.onclick = function(event){
+
+    const modal = document.getElementById("modal");
+
+    if(event.target == modal){
+        closeModal();
+    }
+}
+
+</script>
+
+</body>
+</html>
