@@ -336,25 +336,331 @@ const content = {
 
 classical: `
 
-<h2>Superposición clásica de ondas</h2>
+<h2>Hipótesis de de Broglie</h2>
 
 <p>
-La deducción clásica parte de la interferencia de dos ondas
-armónicas con números de onda ligeramente distintos.
+De Broglie propone las relaciones:
 </p>
 
 <p>
 
 \\[
-y(x,t)=y_0\\cos(k_1x-\\omega_1 t)
-+y_0\\cos(k_2x-\\omega_2 t)
+\\lambda = \\frac{h}{p},
+\\qquad
+f = \\frac{E}{h}
 \\]
 
 </p>
 
 <p>
 
-Usando identidades trigonométricas aparece una envolvente:
+Donde:
+
+\\[
+E:\\ \\text{energía total},
+\\qquad
+p:\\ \\text{momento},
+\\qquad
+\\lambda:\\ \\text{longitud de onda},
+\\qquad
+h:\\ \\text{constante de Planck}
+\\]
+
+</p>
+
+<p>
+
+Como:
+
+\\[
+E = hf
+\\]
+
+y de relatividad especial sabemos que:
+
+\\[
+E^2 = (mc^2)^2 + (pc)^2
+\\]
+
+</p>
+
+<p>
+
+Para una partícula con energía de reposo nula
+\\((mc^2=0)\\):
+
+\\[
+E = hf = pc = \\frac{hc}{\\lambda}
+\\]
+
+</p>
+
+<h2>Condición de onda estacionaria en Bohr</h2>
+
+<p>
+
+De Broglie asocia al modelo de Bohr una onda estacionaria:
+
+\\[
+mvr = n\\hbar
+\\]
+
+Usando:
+
+\\[
+p = mv
+\\]
+
+obtenemos:
+
+\\[
+2\\pi r
+=
+\\frac{nh}{mv}
+=
+\\frac{nh}{p}
+=
+n\\lambda
+\\]
+
+</p>
+
+<figure>
+    <img src="Ondas de bohr.png" width="400">
+    <figcaption>
+        Ondas estacionarias para el modelo atómico de Bohr
+    </figcaption>
+</figure>
+
+<h2>Longitud de onda de de Broglie</h2>
+
+<p>
+
+Partimos de:
+
+\\[
+\\lambda = \\frac{h}{p},
+\\qquad
+E_k = \\frac{p^2}{2m}
+\\]
+
+</p>
+
+<p>
+
+Para velocidades no relativistas:
+
+\\[
+\\lambda =
+\\frac{h}{\\sqrt{2mE_k}}
+\\]
+
+</p>
+
+<p>
+
+En el caso relativista:
+
+\\[
+E^2 = (pc)^2 + (mc^2)^2
+\\]
+
+</p>
+
+<p>
+
+Despejando el momento:
+
+\\[
+p =
+\\sqrt{
+\\left(\\frac{E}{c}\\right)^2
+-
+(mc)^2
+}
+\\]
+
+y usando:
+
+\\[
+E_0 = mc^2
+\\]
+
+se obtiene:
+
+\\[
+\\lambda =
+\\frac{h}{
+\\sqrt{
+\\left(\\frac{E}{c}\\right)^2
+-
+(E_0)^2
+}
+}
+\\]
+
+</p>
+
+<h2>Interpretación ondulatoria</h2>
+
+<p>
+
+Surge entonces la pregunta:
+¿qué es lo que ondea?
+
+</p>
+
+<p>
+
+De manera análoga a la luz,
+no existe un “éter”.
+La partícula se encuentra distribuida
+sobre la extensión de la onda,
+por lo que lo que realmente ondea
+es la probabilidad de encontrar la partícula.
+
+</p>
+
+<h2>Ecuación clásica de onda</h2>
+
+<p>
+
+Las ondas clásicas satisfacen:
+
+\\[
+\\frac{\\partial^2 y}{\\partial x^2}
+=
+\\frac{1}{v^2}
+\\frac{\\partial^2 y}{\\partial t^2}
+\\]
+
+</p>
+
+<p>
+
+Una onda armónica que se propaga
+a lo largo del eje \\(+x\\) es:
+
+\\[
+y(x,t)
+=
+y_0\\cos(kx-\\omega t)
+\\]
+
+</p>
+
+<p>
+
+Donde:
+
+\\[
+k=\\frac{2\\pi}{\\lambda},
+\\qquad
+\\omega = 2\\pi f = \\frac{2\\pi}{T},
+\\qquad
+\\lambda = \\frac{v_p}{f}
+\\]
+
+</p>
+
+<p>
+
+También puede escribirse como:
+
+\\[
+y(x,t)
+=
+y_0
+\\cos\\left(
+2\\pi
+\\left(
+\\frac{x}{\\lambda}
+-
+\\frac{t}{T}
+\\right)
+\\right)
+=
+y_0
+\\cos\\left(
+\\frac{2\\pi}{\\lambda}
+(x-v_pt)
+\\right)
+\\]
+
+</p>
+
+<h2>Superposición clásica de ondas</h2>
+
+<p>
+
+Consideremos dos ondas con igual amplitud
+pero distintos valores de \\(k\\) y \\(\\omega\\):
+
+\\[
+y(x,t)
+=
+y_0\\cos(k_1x-\\omega_1 t)
++
+y_0\\cos(k_2x-\\omega_2 t)
+\\]
+
+</p>
+
+<p>
+
+Usando:
+
+\\[
+\\cos(a)+\\cos(b)
+=
+2\\cos\\left(\\frac{a+b}{2}\\right)
+\\cos\\left(\\frac{a-b}{2}\\right)
+\\]
+
+obtenemos:
+
+\\[
+y(x,t)=
+2y_0
+\\cos\\left(
+\\frac{1}{2}
+[
+(k_2-k_1)x
+-
+(\\omega_2-\\omega_1)t
+]
+\\right)
+\\cos\\left(
+\\frac{1}{2}
+[
+(k_1+k_2)x
+-
+(\\omega_1+\\omega_2)t
+]
+\\right)
+\\]
+
+</p>
+
+<p>
+
+Definiendo:
+
+\\[
+\\Delta k = k_2-k_1,
+\\qquad
+\\Delta\\omega=\\omega_2-\\omega_1
+\\]
+
+y los valores promedio:
+
+\\[
+\\bar{k}=\\frac{k_1+k_2}{2},
+\\qquad
+\\bar{\\omega}=\\frac{\\omega_1+\\omega_2}{2}
+\\]
+
+queda:
 
 \\[
 y(x,t)=
@@ -362,39 +668,212 @@ y(x,t)=
 \\cos\\left(
 \\frac{\\Delta k}{2}x
 -
-\\frac{\\Delta \\omega}{2}t
+\\frac{\\Delta\\omega}{2}t
 \\right)
 \\cos(\\bar{k}x-\\bar{\\omega}t)
 \\]
 
 </p>
 
+<figure>
+    <img src="Paquete de onda.png" width="400">
+    <figcaption>
+        Paquete de onda
+    </figcaption>
+</figure>
+
 <p>
 
-La amplitud modulada genera un paquete de ondas.
-Mientras más localizado esté el paquete,
-más amplio será el rango de valores de \\(k\\).
+La envolvente:
+
+\\[
+2y_0
+\\cos\\left(
+\\frac{\\Delta k}{2}x
+-
+\\frac{\\Delta\\omega}{2}t
+\\right)
+\\]
+
+representa la amplitud modulada
+del paquete de ondas.
+
+</p>
+
+<h2>Velocidad de fase y velocidad de grupo</h2>
+
+<p>
+
+La velocidad de fase es:
+
+\\[
+v_p = \\frac{\\omega}{k}
+\\]
 
 </p>
 
 <p>
 
-Esto lleva naturalmente a:
+Reescribiendo la envolvente:
 
 \\[
-\\Delta x \\Delta k \\sim 1
+2y_0
+\\cos\\left[
+\\frac{\\Delta k}{2}
+\\left(
+x-\\frac{\\Delta\\omega}{\\Delta k}t
+\\right)
+\\right]
 \\]
 
-y usando:
+</p>
+
+<p>
+
+El término:
 
 \\[
-p = \\hbar k
+\\frac{\\Delta\\omega}{\\Delta k}
 \\]
 
-se obtiene:
+corresponde a la velocidad de grupo:
 
 \\[
-\\Delta x \\Delta p \\sim \\hbar
+v_g
+=
+\\lim_{\\Delta k\\to0}
+\\frac{\\Delta\\omega}{\\Delta k}
+=
+\\frac{d\\omega}{dk}
+\\]
+
+</p>
+
+<p>
+
+Como:
+
+\\[
+v_p
+=
+\\frac{\\omega}{k}
+\\implies
+\\omega = kv_p
+\\]
+
+entonces:
+
+\\[
+v_g
+=
+\\frac{d}{dk}(v_pk)
+=
+v_p + k\\frac{dv_p}{dk}
+\\]
+
+</p>
+
+<h2>Ancho del paquete de ondas</h2>
+
+<p>
+
+Los nodos de la envolvente satisfacen:
+
+\\[
+\\frac{\\Delta k}{2}X_n
+-
+\\frac{\\Delta\\omega}{2}t
+=
+\\frac{(2n-1)\\pi}{2}
+\\]
+
+</p>
+
+<p>
+
+Tomando \\(t=0\\):
+
+\\[
+\\frac{\\Delta k}{2}X_n
+=
+\\frac{(2n+1)\\pi}{2}
+\\]
+
+por lo que:
+
+\\[
+X_n
+=
+\\frac{(2n+1)\\pi}{\\Delta k}
+\\]
+
+</p>
+
+<p>
+
+Asimismo:
+
+\\[
+X_{n+1}
+=
+\\frac{(2n+3)\\pi}{\\Delta k}
+\\]
+
+y la separación espacial es:
+
+\\[
+\\Delta x
+=
+X_{n+1}-X_n
+=
+\\frac{2\\pi}{\\Delta k}
+\\]
+
+</p>
+
+<p>
+
+Por tanto:
+
+\\[
+\\Delta x
+\\sim
+\\frac{1}{\\Delta k}
+\\implies
+\\Delta x\\,\\Delta k \\sim 1
+\\]
+
+</p>
+
+<p>
+
+De forma análoga,
+para \\(x=0\\):
+
+\\[
+\\Delta\\omega\\,\\Delta t \\sim 1
+\\]
+
+</p>
+
+<h2>Principio de incertidumbre</h2>
+
+<p>
+
+Usando:
+
+\\[
+p=\\hbar k,
+\\qquad
+E=\\hbar\\omega
+\\]
+
+obtenemos finalmente:
+
+\\[
+\\Delta x\\,\\Delta p \\sim \\hbar
+\\qquad
+\\Delta E\\,\\Delta t \\sim \\hbar
 \\]
 
 </p>
@@ -575,7 +1054,7 @@ function openModal(section){
     document.getElementById("modal-body").innerHTML =
     content[section];
 
-    MathJax.typeset();
+    MathJax.typesetPromise();
 }
 
 function closeModal(){
