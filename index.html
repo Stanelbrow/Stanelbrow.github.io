@@ -949,50 +949,315 @@ y finalmente:
 </p>
 
 `,
-
 results: `
 
-<h2>Resultados numéricos</h2>
+<h2>Generalización para N ondas</h2>
 
 <p>
 
-La simulación muestra que:
+Se asumirá que los números de onda varían alrededor
+de un valor fijo \\(k_0\\) con pasos pequeños
+\\(\\Delta k\\):
+
+\\[
+k_1 = k_0,
+\\qquad
+k_2 = k_0 + \\Delta k,
+\\qquad
+k_3 = k_0 + 2\\Delta k,
+\\dots
+\\]
 
 </p>
-
-<ul>
-
-<li>
-\\(\\sigma_k\\) pequeño:
-paquete ancho en posición y momento localizado.
-</li>
-
-<li>
-\\(\\sigma_k\\) grande:
-paquete localizado en posición y momento disperso.
-</li>
-
-</ul>
 
 <p>
 
-Esto confirma computacionalmente el principio
-de incertidumbre.
+Tomando una amplitud \\(A=1\\)
+y evaluando el paquete de ondas en \\(t=0\\):
+
+\\[
+y(x)
+=
+\\sum_{n=0}^{N} y_n(x)
+=
+\\sum_{n=0}^{N} e^{ik_nx}
+=
+\\sum_{n=0}^{N}
+e^{i(k_0+n\\Delta k)x}
+\\]
+
 </p>
 
-<div class="code-box">
+<p>
 
-<pre>
+Factorizando:
 
-# Ejemplo conceptual
+\\[
+y(x)
+=
+e^{ik_0x}
+\\sum_{n=0}^{N}
+e^{in\\Delta kx}
+\\]
 
-psi_k = np.exp(-(k-k0)**2/(2*sigma_k**2))
+</p>
 
-psi_x = np.fft.ifft(psi_k)
+<p>
 
-</pre>
+Reconocemos una serie geométrica:
 
-</div>
+\\[
+y(x)
+=
+e^{ik_0x}
+\\sum_{n=0}^{N}
+\\left(
+e^{i\\Delta kx}
+\\right)^n
+\\]
+
+</p>
+
+<p>
+
+Usamos la fórmula de suma geométrica finita:
+
+\\[
+\\sum_{n=0}^{N} r^n
+=
+\\frac{1-r^{N+1}}{1-r}
+\\]
+
+</p>
+
+<p>
+
+Con:
+
+\\[
+r=e^{i\\Delta kx}
+\\]
+
+obtenemos:
+
+\\[
+y(x)
+=
+e^{ik_0x}
+\\frac{
+1-e^{i(N+1)\\Delta kx}
+}{
+1-e^{i\\Delta kx}
+}
+\\]
+
+</p>
+
+<p>
+
+Ahora utilizamos la identidad de Euler:
+
+\\[
+1-e^{i\\theta}
+=
+-2i
+e^{i\\theta/2}
+\\sin\\left(
+\\frac{\\theta}{2}
+\\right)
+\\]
+
+</p>
+
+<p>
+
+Aplicándola al numerador y denominador:
+
+\\[
+y(x)
+=
+e^{ik_0x}
+\\frac{
+e^{i\\frac{(N+1)\\Delta kx}{2}}
+\\left[
+-2i
+\\sin\\left(
+\\frac{N+1}{2}\\Delta kx
+\\right)
+\\right]
+}{
+e^{i\\frac{\\Delta kx}{2}}
+\\left[
+-2i
+\\sin\\left(
+\\frac{\\Delta k}{2}x
+\\right)
+\\right]
+}
+\\]
+
+</p>
+
+<p>
+
+Simplificando:
+
+\\[
+y(x)
+=
+\\frac{
+\\sin\\left(
+\\frac{\\Delta k}{2}x(N+1)
+\\right)
+}{
+\\sin\\left(
+\\frac{\\Delta k}{2}x
+\\right)
+}
+e^{i\\left[
+k_0+\\frac{N\\Delta k}{2}
+\\right]x}
+\\]
+
+</p>
+
+<p>
+
+La onda física corresponde a la parte real:
+
+\\[
+\\Re[y(x)]
+\\]
+
+</p>
+
+<p>
+
+Usando:
+
+\\[
+e^{i\\theta}
+=
+\\cos\\theta
++
+i\\sin\\theta
+\\]
+
+obtenemos:
+
+\\[
+\\Re[y(x)]
+=
+\\frac{
+\\sin\\left(
+\\frac{N+1}{2}\\Delta kx
+\\right)
+}{
+\\sin\\left(
+\\frac{\\Delta k}{2}x
+\\right)
+}
+\\cos\\left[
+\\left(
+k_0+\\frac{N\\Delta k}{2}
+\\right)x
+\\right]
+\\]
+
+</p>
+
+<p>
+
+La envolvente del paquete está dada por:
+
+\\[
+A(x)
+=
+\\frac{
+\\sin\\left(
+\\frac{N+1}{2}\\Delta kx
+\\right)
+}{
+\\sin\\left(
+\\frac{\\Delta k}{2}x
+\\right)
+}
+\\]
+
+</p>
+
+<h2>Principio de incertidumbre generalizado</h2>
+
+<p>
+
+Para encontrar los nodos de la envolvente,
+analizamos el seno del numerador.
+Los nodos consecutivos están separados
+por una fase de \\(\\pi\\).
+
+</p>
+
+<p>
+
+Para dos nodos espaciales contiguos
+\\(x_1\\) y \\(x_2\\):
+
+\\[
+\\frac{\\Delta k}{2}
+(N+1)
+(x_2-x_1)
+=
+\\pi
+\\]
+
+</p>
+
+<p>
+
+Definiendo:
+
+\\[
+\\Delta x = x_2-x_1
+\\]
+
+obtenemos:
+
+\\[
+\\Delta k\\Delta x
+=
+\\frac{2\\pi}{N+1}
+\\]
+
+</p>
+
+<p>
+
+Si el número de ondas superpuestas es muy grande
+\\((N\\gg1)\\):
+
+\\[
+\\Delta k\\Delta x
+\\gtrsim 0
+\\]
+
+</p>
+
+<p>
+
+Como macroscópicamente:
+
+\\[
+\\hbar
+\\approx
+1.054\\times10^{-34}
+\\text{ J}\\cdot\\text{s}
+\\approx 0
+\\]
+
+este límite concuerda con la física clásica,
+donde la incertidumbre observable resulta despreciable.
+
+</p>
 
 `,
 
@@ -1017,7 +1282,7 @@ Aquí pueden acceder a:
 
 <p>
 
-<a href="https://github.com/"
+<a href="https://juandelgadore.github.io/Simulador-Cu-ntico/"
 target="_blank">
 
 Abrir GitHub
