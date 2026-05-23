@@ -887,6 +887,8 @@ quantum: `
 
 <p>
 
+La ecuación de Schrödinger dependiente del tiempo en una dimensión es:
+
 \\[
 i\hbar\frac{\partial\Psi(x,t)}{\partial t}
 =
@@ -900,17 +902,22 @@ V(x,t)\Psi(x,t)
 
 <p>
 
-Donde \\(\Psi(x,t)\\) es la función de onda y
-\\(|\Psi|^2\\) representa la densidad de probabilidad.
+Donde \\(\Psi(x,t)\\) es la función de onda y:
+
+\\[
+|\Psi(x,t)|^2
+\\]
+
+representa la densidad de probabilidad.
 
 </p>
 
 <p>
 
-Usamos separación de variables:
+Aplicamos separación de variables suponiendo:
 
 \\[
-\Psi(x,t)=\Psi(x)\phi(t)
+\Psi(x,t)=\psi(x)\phi(t)
 \\]
 
 </p>
@@ -920,30 +927,49 @@ Usamos separación de variables:
 Sustituyendo en la ecuación de Schrödinger:
 
 \\[
-\frac{i\hbar}{\Psi(x)\phi(t)}
-\frac{\partial\Psi(x,t)}{\partial t}
+i\hbar
+\frac{\partial}{\partial t}
+\left[
+\psi(x)\phi(t)
+\right]
 =
--\frac{1}{\Psi(x)\phi(t)}
-\frac{\hbar^{2}}{2m}
-\frac{\partial^{2}\Psi(x,t)}{\partial x^{2}}
+-\frac{\hbar^2}{2m}
+\frac{\partial^2}{\partial x^2}
+\left[
+\psi(x)\phi(t)
+\right]
 +
-\frac{1}{\Psi(x,t)}
-V(x,t)\Psi(x,t)
+V(x,t)\psi(x)\phi(t)
 \\]
 
 </p>
 
 <p>
 
-Obtenemos:
+Como \\(\psi(x)\\) no depende de \\(t\\) y \\(\phi(t)\\) no depende de \\(x\\):
+
+\\[
+i\hbar\psi(x)\frac{d\phi(t)}{dt}
+=
+-\frac{\hbar^2}{2m}
+\phi(t)\frac{d^2\psi(x)}{dx^2}
++
+V(x,t)\psi(x)\phi(t)
+\\]
+
+</p>
+
+<p>
+
+Dividiendo entre \\(\psi(x)\phi(t)\\):
 
 \\[
 \frac{i\hbar}{\phi(t)}
-\frac{\partial\phi(t)}{\partial t}
+\frac{d\phi(t)}{dt}
 =
--\frac{1}{\Psi(x)}
-\frac{\hbar^{2}}{2m}
-\frac{\partial^{2}\Psi(x)}{\partial x^{2}}
+-\frac{\hbar^2}{2m}
+\frac{1}{\psi(x)}
+\frac{d^2\psi(x)}{dx^2}
 +
 V(x,t)
 \\]
@@ -952,58 +978,65 @@ V(x,t)
 
 <p>
 
-Si el potencial no depende del tiempo:
+Si el potencial no depende explícitamente del tiempo:
+
+\\[
+V(x,t)=V(x)
+\\]
+
+entonces:
 
 \\[
 \frac{i\hbar}{\phi(t)}
-\frac{\partial\phi(t)}{\partial t}
-=
--\frac{1}{\Psi(x)}
-\frac{\hbar^{2}}{2m}
-\frac{\partial^{2}\Psi(x)}{\partial x^{2}}
-+
-V(x)
-\\]
-
-</p>
-
-<p>
-
-El lado izquierdo depende solo de \\(t\\)
-y el derecho solo de \\(x\\),
-por lo que ambos deben ser iguales
-a una constante \\(E\\):
-
-\\[
-\frac{i\hbar}{\phi(t)}
-\frac{\partial\phi(t)}{\partial t}
-=
-E
-\\]
-
-\\[
--\frac{1}{\Psi(x)}
-\frac{\hbar^{2}}{2m}
-\frac{\partial^{2}\Psi(x)}{\partial x^{2}}
-+
-V(x)
-=
-E
-\\]
-
-</p>
-
-<p>
-
-Reorganizando:
-
-\\[
-E\Psi(x)
+\frac{d\phi(t)}{dt}
 =
 -\frac{\hbar^2}{2m}
-\frac{d^{2}\Psi(x)}{dx^{2}}
+\frac{1}{\psi(x)}
+\frac{d^2\psi(x)}{dx^2}
 +
-V(x)\Psi(x)
+V(x)
+\\]
+
+</p>
+
+<p>
+
+El lado izquierdo depende únicamente de \\(t\\),
+mientras que el derecho depende únicamente de \\(x\\).
+Por tanto, ambos deben ser iguales a una constante \\(E\\):
+
+\\[
+\frac{i\hbar}{\phi(t)}
+\frac{d\phi(t)}{dt}
+=
+E
+\\]
+
+y
+
+\\[
+-\frac{\hbar^2}{2m}
+\frac{1}{\psi(x)}
+\frac{d^2\psi(x)}{dx^2}
++
+V(x)
+=
+E
+\\]
+
+</p>
+
+<p>
+
+Multiplicando por \\(\psi(x)\\) obtenemos la ecuación independiente del tiempo:
+
+\\[
+E\psi(x)
+=
+-\frac{\hbar^2}{2m}
+\frac{d^2\psi(x)}{dx^2}
++
+V(x)\psi(x)
 \\]
 
 </p>
@@ -1012,38 +1045,46 @@ V(x)\Psi(x)
 
 <p>
 
+La ecuación independiente del tiempo es:
+
 \\[
-E\Psi(x)
+E\psi(x)
 =
 -\frac{\hbar^2}{2m}
-\frac{d^{2}\Psi(x)}{dx^{2}}
+\frac{d^2\psi(x)}{dx^2}
 +
-V(x)\Psi(x)
+V(x)\psi(x)
 \\]
 
 </p>
 
 <p>
 
-Para una partícula libre \\((V(x)=0)\\):
+Para una partícula libre:
 
 \\[
-E\Psi(x)
+V(x)=0
+\\]
+
+por lo que:
+
+\\[
+E\psi(x)
 =
 -\frac{\hbar^2}{2m}
-\frac{d^{2}\Psi(x)}{dx^{2}}
+\frac{d^2\psi(x)}{dx^2}
 \\]
 
 </p>
 
 <p>
 
-Entonces:
+Reordenando:
 
 \\[
-\frac{d^{2}\Psi(x)}{dx^{2}}
+\frac{d^2\psi(x)}{dx^2}
 =
--\frac{2mE}{\hbar^2}\Psi(x)
+-\frac{2mE}{\hbar^2}\psi(x)
 \\]
 
 </p>
@@ -1056,16 +1097,12 @@ Definimos:
 k^2=\frac{2mE}{\hbar^2}
 \\]
 
-</p>
-
-<p>
-
-Así:
+obteniendo:
 
 \\[
-\frac{d^{2}\Psi(x)}{dx^{2}}
+\frac{d^2\psi(x)}{dx^2}
 +
-k^2\Psi(x)
+k^2\psi(x)
 =
 0
 \\]
@@ -1077,7 +1114,7 @@ k^2\Psi(x)
 La solución general es:
 
 \\[
-\Psi(x)
+\psi(x)
 =
 Ae^{ikx}
 +
@@ -1090,6 +1127,8 @@ Be^{-ikx}
 
 <p>
 
+La ecuación temporal es:
+
 \\[
 E\phi(t)
 =
@@ -1101,41 +1140,57 @@ i\hbar
 
 <p>
 
+Separando variables:
+
+\\[
+\frac{d\phi(t)}{\phi(t)}
+=
+-\frac{iE}{\hbar}dt
+\\]
+
+</p>
+
+<p>
+
 Integrando:
 
 \\[
-t
-=
-\frac{i\hbar}{E}
 \int_{\phi(0)}^{\phi(t)}
 \frac{d\phi'}{\phi'}
-\\]
-
-</p>
-
-<p>
-
-\\[
-\frac{Et}{i\hbar}
 =
-\ln\phi(t)-\ln\phi(0)
+-\frac{iE}{\hbar}
+\int_0^t dt'
 \\]
 
 </p>
 
 <p>
 
-Usando \\(\phi(0)=1\\):
+Entonces:
 
 \\[
-\ln 1 = 0
+\ln\phi(t)-\ln\phi(0)
+=
+-\frac{iEt}{\hbar}
 \\]
 
 </p>
 
 <p>
 
-Obtenemos:
+Si imponemos:
+
+\\[
+\phi(0)=1
+\\]
+
+entonces:
+
+\\[
+\ln\phi(0)=0
+\\]
+
+y obtenemos:
 
 \\[
 \phi(t)
@@ -1154,15 +1209,33 @@ La solución completa es:
 \\[
 \Psi(x,t)
 =
-\Psi(x)e^{-iEt/\hbar}
+\psi(x)e^{-iEt/\hbar}
 \\]
 
 </p>
 
 <p>
 
-Si se considera una partícula propagándose
-solo hacia la derecha:
+Sustituyendo la solución espacial:
+
+\\[
+\Psi(x,t)
+=
+\left(
+Ae^{ikx}
++
+Be^{-ikx}
+\right)
+e^{-iEt/\hbar}
+\\]
+
+</p>
+
+<p>
+
+En muchos problemas físicos se selecciona
+una única dirección de propagación,
+por lo que:
 
 \\[
 B=0
@@ -1172,7 +1245,7 @@ B=0
 
 <p>
 
-Entonces:
+La función de onda queda:
 
 \\[
 \Psi(x,t)
@@ -1180,7 +1253,7 @@ Entonces:
 Ae^{i(kx-\omega t)}
 \\]
 
-donde
+donde:
 
 \\[
 \omega=\frac{E}{\hbar}
@@ -1204,7 +1277,7 @@ P(x,t)
 
 <p>
 
-Sustituyendo la onda plana:
+Sustituyendo:
 
 \\[
 P(x,t)
@@ -1236,155 +1309,28 @@ La condición de normalización exige:
 
 <p>
 
-Pero para una onda plana:
+Sin embargo:
 
 \\[
 |A|^2
 \int_{-\infty}^{\infty}dx
-\to
-\infty
+\to\infty
 \\]
 
 </p>
 
 <p>
 
-La función no es normalizable.
-Esto significa que una onda plana
-describe una partícula totalmente deslocalizada.
+La integral diverge,
+por lo que una onda plana no es normalizable.
 
-</p>
-
-<p>
-
-Por ello se construyen paquetes de ondas
-mediante superposición de Fourier:
+Esto significa que describe una partícula completamente deslocalizada:
 
 \\[
-y(x)
-=
-\sum_{n=-\infty}^{\infty}
-A_ne^{ik_nx}
+\Delta x\to\infty
 \\]
 
-</p>
-
-<p>
-
-Imponiendo periodicidad:
-
-\\[
-y(x)=y(x+2\Delta x)
-\\]
-
-</p>
-
-<p>
-
-Entonces:
-
-\\[
-e^{ik_nx}
-=
-e^{ik_n(x+2\Delta x)}
-=
-e^{ik_nx}e^{i2k_n\Delta x}
-\\]
-
-</p>
-
-<p>
-
-Por tanto:
-
-\\[
-e^{i2k_n\Delta x}=1
-\\]
-
-</p>
-
-<p>
-
-Usando Euler:
-
-\\[
-1
-=
-\cos(2k_n\Delta x)
-+
-i\sin(2k_n\Delta x)
-\\]
-
-</p>
-
-<p>
-
-De aquí:
-
-\\[
-2k_n\Delta x
-=
-2\pi n
-\\]
-
-</p>
-
-<p>
-
-y:
-
-\\[
-k_n
-=
-\frac{\pi n}{\Delta x}
-\\]
-
-</p>
-
-<p>
-
-La separación entre modos es:
-
-\\[
-\Delta k
-=
-\frac{\pi}{\Delta x}
-\\]
-
-</p>
-
-<p>
-
-lo que conduce a:
-
-\\[
-\Delta x\Delta k
-=
-\pi
-\\]
-
-</p>
-
-<h2>Transformada de Fourier</h2>
-
-<p>
-
-En el límite continuo:
-
-\\[
-y(x)
-=
-\frac{1}{\sqrt{2\pi}}
-\int_{-\infty}^{\infty}
-\tilde{y}(k)e^{ikx}dk
-\\]
-
-</p>
-
-<p>
-
-Cada onda plana \\(e^{ikx}\\)
-representa un estado de momento definido:
+aunque posee momento bien definido:
 
 \\[
 p=\hbar k
@@ -1394,297 +1340,10 @@ p=\hbar k
 
 <p>
 
-La función \\(\Phi(k)\\)
-representa la amplitud de cada componente:
-
-\\[
-\Psi(x)
-=
-\frac{1}{\sqrt{2\pi}}
-\int_{-\infty}^{\infty}
-\Phi(k)e^{ikx}dk
-\\]
-
-</p>
-
-<h2>Paquete Gaussiano</h2>
-
-<p>
-
-Elegimos:
-
-\\[
-\Phi(k)
-=
-Ce^{-\sigma_k^2(k-k_0)^2}
-\\]
-
-</p>
-
-<p>
-
-La gaussiana es útil porque
-su transformada también es gaussiana
-y evita divergencias matemáticas.
-
-</p>
-
-<p>
-
-Sustituyendo:
-
-\\[
-\Psi(x)
-=
-\frac{1}{\sqrt{2\pi}}
-\int_{-\infty}^{\infty}
-Ce^{-\sigma_k^2(k-k_0)^2}
-e^{ikx}dk
-\\]
-
-</p>
-
-<p>
-
-Definimos:
-
-\\[
-q=k-k_0
-\\]
-
-</p>
-
-<p>
-
-Entonces:
-
-\\[
-\Psi(x)
-=
-\frac{C}{\sqrt{2\pi}}
-e^{ik_0x}
-\int_{-\infty}^{\infty}
-e^{-\sigma_k^2q^2}
-e^{iqx}dq
-\\]
-
-</p>
-
-<h3>Integral gaussiana</h3>
-
-<p>
-
-Definimos:
-
-\\[
-I(x)
-=
-\int_{-\infty}^{\infty}
-e^{-\sigma_k^2q^2}
-e^{iqx}dq
-\\]
-
-</p>
-
-<p>
-
-Combinando exponentes:
-
-\\[
-I(x)
-=
-\int_{-\infty}^{\infty}
-\exp\left(
--\sigma_k^2q^2+iqx
-\right)dq
-\\]
-
-</p>
-
-<p>
-
-Completando cuadrados:
-
-\\[
-q^2
--
-\frac{ix}{\sigma_k^2}q
-=
-\left(
-q-\frac{ix}{2\sigma_k^2}
-\right)^2
--
-\frac{x^2}{4\sigma_k^4}
-\\]
-
-</p>
-
-<p>
-
-Finalmente:
-
-\\[
-I(x)
-=
-\sqrt{\frac{\pi}{\sigma_k^2}}
-e^{-x^2/(4\sigma_k^2)}
-\\]
-
-</p>
-
-<p>
-
-Por tanto:
-
-\\[
-\Psi(x)
-=
-C'
-e^{ik_0x}
-e^{-x^2/(4\sigma_k^2)}
-\\]
-
-</p>
-
-<h2>Relación de incertidumbre</h2>
-
-<p>
-
-La densidad de probabilidad es:
-
-\\[
-|\Psi(x)|^2
-=
-|C'|^2
-e^{-x^2/(2\sigma_k^2)}
-\\]
-
-</p>
-
-<p>
-
-Normalizando:
-
-\\[
-\int_{-\infty}^{\infty}
-|\Psi(x)|^2dx
-=
-1
-\\]
-
-</p>
-
-<p>
-
-Se obtiene:
-
-\\[
-|C'|
-=
-(2\pi)^{-1/4}\sigma_k^{-1/2}
-\\]
-
-</p>
-
-<p>
-
-La distribución final queda:
-
-\\[
-|\Psi(x)|^2
-=
-\frac{1}{\sqrt{2\pi}\sigma_k}
-e^{-x^2/(2\sigma_k^2)}
-\\]
-
-</p>
-
-<p>
-
-Comparando con una gaussiana estándar:
-
-\\[
-\frac{1}{\sqrt{2\pi}\sigma_x}
-e^{-x^2/(2\sigma_x^2)}
-\\]
-
-</p>
-
-<p>
-
-obtenemos:
-
-\\[
-\sigma_x
-=
-\frac{1}{2\sigma_k}
-\\]
-
-</p>
-
-<p>
-
-y por tanto:
-
-\\[
-\sigma_x\sigma_k
-=
-\frac{1}{2}
-\\]
-
-</p>
-
-<p>
-
-Usando:
-
-\\[
-p=\hbar k
-\\]
-
-</p>
-
-<p>
-
-la dispersión en momento es:
-
-\\[
-\sigma_p
-=
-\hbar\sigma_k
-\\]
-
-</p>
-
-<p>
-
-Finalmente:
-
-\\[
-\sigma_x\sigma_p
-=
-\frac{\hbar}{2}
-\\]
-
-</p>
-
-<p>
-
-Es decir:
-
-\\[
-\Delta x\Delta p
-=
-\frac{\hbar}{2}
-\\]
-
-</p>
-
-<p>
-
-Este resultado implica que no es posible
-determinar simultáneamente la posición
-y el momento con precisión arbitraria.
+Para representar partículas localizadas,
+debemos construir paquetes de ondas
+mediante superposición de infinitas ondas planas
+usando la transformada de Fourier.
 
 </p>
 
