@@ -887,156 +887,72 @@ quantum: `
 
 <p>
 
-La ecuación de Schrödinger dependiente del tiempo en una dimensión es:
-
 \\[
-i\hbar\frac{\partial\Psi(x,t)}{\partial t}
-=
--\frac{\hbar^{2}}{2m}
-\frac{\partial^{2}\Psi(x,t)}{\partial x^{2}}
-+
-V(x,t)\Psi(x,t)
+i\hbar\frac{\partial\Psi(x,t)}{\partial t}=-\frac{\hbar^{2}}{2m}\frac{\partial^{2}\Psi(x,t)}{\partial x^{2}}+V(x,t)\Psi(x,t)
 \\]
 
 </p>
 
 <p>
 
-Donde \\(\Psi(x,t)\\) es la función de onda y:
-
-\\[
-|\Psi(x,t)|^2
-\\]
-
-representa la densidad de probabilidad.
+Donde \\(\Psi(x,t)\\) es la función de onda y \\(|\Psi|^2\\) representa la densidad de probabilidad.
 
 </p>
 
 <p>
 
-Aplicamos separación de variables suponiendo:
+Usamos el método de separación de variables:
 
 \\[
-\Psi(x,t)=\psi(x)\phi(t)
+\Psi(x,t)=\Psi(x)\phi(t) \quad (1)
 \\]
 
 </p>
 
 <p>
 
-Sustituyendo en la ecuación de Schrödinger:
+Dividiendo (1) entre la ecuación de Schrödinger tenemos:
 
 \\[
-i\hbar
-\frac{\partial}{\partial t}
-\left[
-\psi(x)\phi(t)
-\right]
-=
--\frac{\hbar^2}{2m}
-\frac{\partial^2}{\partial x^2}
-\left[
-\psi(x)\phi(t)
-\right]
-+
-V(x,t)\psi(x)\phi(t)
+\frac{i\hbar}{\Psi(x)\phi(t)}\frac{\partial\Psi(x,t)}{\partial t}=-\frac{1}{\Psi(x)\phi(t)}\frac{\hbar^{2}}{2m}\frac{\partial^{2}\Psi(x,t)}{\partial x^{2}}+\frac{1}{\Psi(x,t)}V(x,t)\Psi(x,t)
+\\]
+
+\\[
+\frac{i\hbar}{\phi(t)}\frac{\partial\phi(t)}{\partial t}=-\frac{1}{\Psi(x)}\frac{\hbar^{2}}{2m}\frac{\partial^{2}\Psi(x)}{\partial x^{2}}+V(x,t)
 \\]
 
 </p>
 
 <p>
 
-Como \\(\psi(x)\\) no depende de \\(t\\) y \\(\phi(t)\\) no depende de \\(x\\):
+Si asumimos que el potencial no depende del tiempo teniendo:
 
 \\[
-i\hbar\psi(x)\frac{d\phi(t)}{dt}
-=
--\frac{\hbar^2}{2m}
-\phi(t)\frac{d^2\psi(x)}{dx^2}
-+
-V(x,t)\psi(x)\phi(t)
+\frac{i\hbar}{\phi(t)}\frac{\partial\phi(t)}{\partial t}=-\frac{1}{\Psi(x)}\frac{\hbar^{2}}{2m}\frac{\partial^{2}\Psi(x)}{\partial x^{2}}+V(x)
 \\]
 
 </p>
 
 <p>
 
-Dividiendo entre \\(\psi(x)\phi(t)\\):
+El lado derecho solo depende de \\(x\\) y el izquierdo de \\(t\\), por lo que para conservar la igualdad ambos lados deben ser iguales a una constante \\(E\\) (la energía):
 
 \\[
-\frac{i\hbar}{\phi(t)}
-\frac{d\phi(t)}{dt}
-=
--\frac{\hbar^2}{2m}
-\frac{1}{\psi(x)}
-\frac{d^2\psi(x)}{dx^2}
-+
-V(x,t)
+\frac{i\hbar}{\phi(t)}\frac{\partial\phi(t)}{\partial t}=E
+\\]
+
+\\[
+-\frac{1}{\Psi(x)}\frac{\hbar^{2}}{2m}\frac{\partial^{2}\Psi(x)}{\partial x^{2}}+V(x)=E
 \\]
 
 </p>
 
 <p>
 
-Si el potencial no depende explícitamente del tiempo:
+Acomodándola llegamos a la ecuación independiente del tiempo:
 
 \\[
-V(x,t)=V(x)
-\\]
-
-entonces:
-
-\\[
-\frac{i\hbar}{\phi(t)}
-\frac{d\phi(t)}{dt}
-=
--\frac{\hbar^2}{2m}
-\frac{1}{\psi(x)}
-\frac{d^2\psi(x)}{dx^2}
-+
-V(x)
-\\]
-
-</p>
-
-<p>
-
-El lado izquierdo depende únicamente de \\(t\\),
-mientras que el derecho depende únicamente de \\(x\\).
-Por tanto, ambos deben ser iguales a una constante \\(E\\):
-
-\\[
-\frac{i\hbar}{\phi(t)}
-\frac{d\phi(t)}{dt}
-=
-E
-\\]
-
-y
-
-\\[
--\frac{\hbar^2}{2m}
-\frac{1}{\psi(x)}
-\frac{d^2\psi(x)}{dx^2}
-+
-V(x)
-=
-E
-\\]
-
-</p>
-
-<p>
-
-Multiplicando por \\(\psi(x)\\) obtenemos la ecuación independiente del tiempo:
-
-\\[
-E\psi(x)
-=
--\frac{\hbar^2}{2m}
-\frac{d^2\psi(x)}{dx^2}
-+
-V(x)\psi(x)
+E\Psi(x) = -\frac{\hbar^2}{2m} \frac{d^{2} \Psi(x)}{dx^{2}} + V(x)\Psi(x)
 \\]
 
 </p>
@@ -1045,292 +961,756 @@ V(x)\psi(x)
 
 <p>
 
-La ecuación independiente del tiempo es:
-
 \\[
-E\psi(x)
-=
--\frac{\hbar^2}{2m}
-\frac{d^2\psi(x)}{dx^2}
-+
-V(x)\psi(x)
+E\Psi(x) = -\frac{\hbar^2}{2m} \frac{d^{2} \Psi(x)}{dx^{2}} + V(x)\Psi(x)
 \\]
 
 </p>
 
 <p>
 
-Para una partícula libre:
+La cual se usa si el sistema no depende explícitamente del tiempo. 
+Si consideramos una partícula libre (\\(V(x)=0\\)), entonces la ecuación se transforma en:
 
 \\[
-V(x)=0
-\\]
-
-por lo que:
-
-\\[
-E\psi(x)
-=
--\frac{\hbar^2}{2m}
-\frac{d^2\psi(x)}{dx^2}
+E\Psi(x) = -\frac{\hbar^2}{2m} \frac{d^{2} \Psi(x)}{dx^{2}}
 \\]
 
 </p>
 
 <p>
 
-Reordenando:
+Reorganizando tenemos:
 
 \\[
-\frac{d^2\psi(x)}{dx^2}
-=
--\frac{2mE}{\hbar^2}\psi(x)
+\frac{d^{2} \Psi(x)}{dx^{2}}=-\frac{2mE}{\hbar^2}\Psi(x)
 \\]
 
 </p>
 
 <p>
 
-Definimos:
+Definimos el número de onda \\(k\\) como \\(k^2=\frac{2mE}{\hbar^2}\\), por ende queda:
 
 \\[
-k^2=\frac{2mE}{\hbar^2}
-\\]
-
-obteniendo:
-
-\\[
-\frac{d^2\psi(x)}{dx^2}
-+
-k^2\psi(x)
-=
-0
+\frac{d^{2} \Psi(x)}{dx^{2}}+k^2 \Psi(x)=0
 \\]
 
 </p>
 
 <p>
 
-La solución general es:
+La cual es una EDO de 2do orden homogénea cuya solución general es:
 
 \\[
-\psi(x)
-=
-Ae^{ikx}
-+
-Be^{-ikx}
+\Psi(x)=Ae^{ikx}+Be^{-ikx}
 \\]
 
 </p>
 
-<h3>Solución temporal</h3>
+<h3>Solución de la parte dependiente del tiempo</h3>
 
 <p>
 
-La ecuación temporal es:
-
 \\[
-E\phi(t)
-=
-i\hbar
-\frac{d\phi(t)}{dt}
+E\phi(t)=i\hbar \frac{d\phi(t)}{dt}
 \\]
 
 </p>
 
 <p>
 
-Separando variables:
-
 \\[
-\frac{d\phi(t)}{\phi(t)}
-=
--\frac{iE}{\hbar}dt
+t=\frac{i\hbar}{E}\int_{\phi(0)}^{\phi(t)} \frac{d\phi'}{\phi'}
 \\]
 
 </p>
 
 <p>
 
-Integrando:
-
 \\[
-\int_{\phi(0)}^{\phi(t)}
-\frac{d\phi'}{\phi'}
-=
--\frac{iE}{\hbar}
-\int_0^t dt'
+\frac{Et}{i\hbar}=\ln\phi(t) - ln\phi(0)
 \\]
 
 </p>
 
 <p>
 
-Entonces:
+Y asumiendo la condición de normalizacíon \\(\phi(0) = 1\\)
 
 \\[
-\ln\phi(t)-\ln\phi(0)
-=
--\frac{iEt}{\hbar}
+\implies ln1  = 0 \implies \frac{Et}{i\hbar}=\ln\phi(t)
 \\]
 
 </p>
 
 <p>
 
-Si imponemos:
+Obteniendo:
 
 \\[
-\phi(0)=1
-\\]
-
-entonces:
-
-\\[
-\ln\phi(0)=0
-\\]
-
-y obtenemos:
-
-\\[
-\phi(t)
-=
-e^{-iEt/\hbar}
+\Phi(t)=e^{-\frac{iE}{\hbar}t}
 \\]
 
 </p>
+
 
 <h2>Solución completa dependiente del tiempo</h2>
 
 <p>
 
-La solución completa es:
+Sabemos que la solución general dependiente del tiempo viene dada por:
 
 \\[
-\Psi(x,t)
-=
-\psi(x)e^{-iEt/\hbar}
+\Psi(x,t)=\Psi(x)e^{-iEt/\hbar}
 \\]
 
 </p>
 
 <p>
 
-Sustituyendo la solución espacial:
+En muchos problemas físicos se impone una condición de contorno que selecciona una sola dirección de propagación. Por ejemplo, si se considera una partícula incidente desde la izquierda sin reflexión, no debe existir una componente que viaje hacia la izquierda. Esto implica que el coeficiente asociado a esa componente debe anularse:
 
 \\[
-\Psi(x,t)
-=
-\left(
-Ae^{ikx}
-+
-Be^{-ikx}
-\right)
-e^{-iEt/\hbar}
+B = 0
 \\]
 
 </p>
 
 <p>
 
-En muchos problemas físicos se selecciona
-una única dirección de propagación,
-por lo que:
+Por lo tanto, la función de onda se reduce a:
 
 \\[
-B=0
+\Psi(x,t)=Ae^{i(kx-wt)}
+\\]
+
+donde \\(w=\frac{E}{\hbar}\\).
+
+</p>
+
+<p>
+
+Para que esta función represente un estado físico, debe cumplir con la \\textbf{condición de normalización}. Definimos primero la densidad de probabilidad como:
+
+\\[
+P(x,t) = \Psi^*(x,t) \Psi(x,t) = |\Psi(x,t)|^2
 \\]
 
 </p>
 
 <p>
 
-La función de onda queda:
+Sustituyendo nuestra solución:
 
 \\[
-\Psi(x,t)
-=
-Ae^{i(kx-\omega t)}
-\\]
-
-donde:
-
-\\[
-\omega=\frac{E}{\hbar}
+P(x,t) = \left( A^* e^{-i(kx - \omega t)} \right) \left( A e^{i(kx - \omega t)} \right) = |A|^2
 \\]
 
 </p>
 
 <p>
 
-La densidad de probabilidad es:
+La condición de normalización exige que la probabilidad total de encontrar la partícula en todo el espacio sea igual a la unidad:
 
 \\[
-P(x,t)
-=
-\Psi^*(x,t)\Psi(x,t)
-=
-|\Psi(x,t)|^2
+\int_{-\infty}^{\infty} |\Psi(x,t)|^2 dx = 1
 \\]
 
 </p>
 
 <p>
 
-Sustituyendo:
+Sin embargo, al evaluar la integral para una onda plana:
 
 \\[
-P(x,t)
-=
-\left(
-A^*e^{-i(kx-\omega t)}
-\right)
-\left(
-Ae^{i(kx-\omega t)}
-\right)
-=
-|A|^2
+|A|^2 \int_{-\infty}^{\infty} dx \longrightarrow \infty
 \\]
 
 </p>
 
 <p>
 
-La condición de normalización exige:
+La integral diverge, lo que significa que la función no es normalizable. Físicamente, esto implica que una onda plana monocromática describe una partícula totalmente deslocalizada en el espacio (\\(\Delta x \to \infty\\)), pero a la vez por las propiedades de una onda plana monocromatica esta tiene su momento bien definida como \\(p=\hbar k\\).
+
+</p>
+
+<p>
+
+Para representar una partícula real (localizada), no podemos usar una sola onda plana; debemos construir un paquete de ondas mediante la superposición de infinitas ondas con distintos momentos, utilizando la Transformada de Fourier.
+
+</p>
+
+<p>
+
+Consideramos el caso más general de una superposición donde tanto los números de onda como las amplitudes difieren de un modo a otro. Asumiendo que el sistema está confinado en una región de tamaño \\(2\Delta x\\), la serie toma la forma:
 
 \\[
-\int_{-\infty}^{\infty}
-|\Psi(x,t)|^2dx
-=
-1
+    y(x) = \sum_{n=-\infty}^{\infty} A_n e^{ik_n x}
+\\]
+
+</p>
+
+
+
+<p>
+
+Imponiendo la condición de periodicidad en la frontera
+\\(y(x) = y(x + 2\Delta x)\\), se obtiene la relación de cuantización para los números de onda:
+
+\\[
+e^{ik_nx} = e^{ik_n(x + 2\Delta x)} = e^{ik_nx}e^{i2k_n\Delta x}
+\\]
+
+\\[
+  \implies   e^{ik_n 2\Delta x} = 1 = \cos(2k_n\Delta x)+ i\sin(2k_n\Delta x) 
 \\]
 
 </p>
 
 <p>
 
-Sin embargo:
+Igualando las partes real e imaginaria de ambos términos:
 
 \\[
-|A|^2
-\int_{-\infty}^{\infty}dx
-\to\infty
+\cos(2k_n\Delta x) = 1
+\\]
+
+\\[
+\sin(2k_n\Delta x) = 0
+\\]
+
+\\[
+\implies 2k_n\Delta x =2\pi n \implies k_n = \frac{\pi n}{\Delta x} 
 \\]
 
 </p>
 
 <p>
 
-La integral diverge,
-por lo que una onda plana no es normalizable.
+La separación entre modos individuales adyacentes es \\(\Delta k = \pi / \Delta x\\). Esto da lugar a la relación de incertidumbre fundamental \\(\Delta x \Delta k = \pi\\), la cual indica que a mayor certidumbre en el momento (\\(\Delta k \to 0\\)), existe un completo desconocimiento de la posición (\\(\Delta x \to \infty\\)).
 
-Esto significa que describe una partícula completamente deslocalizada:
+</p>
+
+<p>
+
+Para realizar el paso al continuo, agrupamos los modos en paquetes indexados por \\(j\\). Si el paquete \\(j\\)-ésimo contiene un número \\(\Delta n_j\\) de ondas, la suma se reescribe como:
 
 \\[
-\Delta x\to\infty
+    y(x) \approx \sum_{j=-\infty}^{\infty} A_{n_j} e^{i k_j x} \Delta n_j
 \\]
 
-aunque posee momento bien definido:
+</p>
+
+<p>
+
+El ancho de este paquete en el espacio de momentos es \\(\Delta k_{nj} = \Delta n_j \left(\frac{\pi}{\Delta x}\right)\\). Despejando el número de ondas obtenemos \\(\Delta n_j = \frac{\Delta x}{\pi} \Delta k_{nj}\\). Sustituyendo esto en la ecuación anterior:
+
+\\[
+    y(x) \approx \sum_{j=-\infty}^{\infty} A_{n_j} \left( \frac{\Delta x}{\pi} \right) e^{i k_{nj} x} \Delta k_{nj}
+\\]
+
+</p>
+
+<p>
+
+Para absorber la dependencia del tamaño de la caja \\(\Delta x\\), definimos una amplitud continua \\(\tilde{y}(k_j)\\):
+
+</p>
+
+<p>
+
+Sea \\(k_j \equiv k_{nj}\\)
+
+\\[
+    \tilde{y}(k_j) \equiv A_{n_j} \Delta x \sqrt{\frac{2}{\pi}} \implies A_{n_j} \frac{\Delta x}{\pi} = \frac{1}{\sqrt{2\pi}} \tilde{y}(k_j)
+\\]
+
+</p>
+
+<p>
+
+Reemplazando esta definición, la suma de los paquetes adquiere la forma:
+
+\\[
+    y(x) \approx \frac{1}{\sqrt{2\pi}} \sum_{j=-\infty}^{\infty} \tilde{y}(k_j) e^{i k_j x} \Delta k_j
+\\]
+
+</p>
+
+<p>
+
+Finalmente, tomamos el límite en el cual la caja espacial se vuelve infinita (\\(\Delta x \to \infty\\)). En este límite, la suma de Riemann converge exactamente a la Transformada de Fourier:
+
+\\[
+    y(x) = \lim_{\Delta x \to \infty} \frac{1}{\sqrt{2\pi}} \sum_{j=-\infty}^{\infty} \tilde{y}(k_j) e^{i k_j x} \Delta k_j = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \tilde{y}(k) e^{ikx} dk
+\\]
+
+</p>
+
+<p>
+
+Por tanto:
+
+\\[
+y(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \tilde{y}(k)e^{ikx}dk
+\\]
+
+</p>
+
+
+<h2>Origen de la expresión</h2>
+
+<p>
+
+La ecuación de Schrödinger para una partícula libre admite como soluciones funciones del tipo
+
+\\[
+e^{i k x},
+\\]
+
+las cuales representan ondas planas. Cada una de estas ondas está asociada a un valor definido del momento, dado por la relación
+
+\\[
+p = \hbar k.
+\\]
+
+</p>
+
+<p>
+
+Sin embargo, una sola onda plana no describe una partícula localizada, ya que su densidad de probabilidad es constante en todo el espacio. Para representar una partícula físicamente real, es necesario construir una superposición de muchas ondas con diferentes valores de \\(k\\). Matemáticamente, esta superposición se obtiene con la transformada inversa de fourier
+
+\\[
+\Psi(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \Phi(k)e^{ikx}dx
+\\]
+
+</p>
+
+<p>
+
+Donde
+
+</p>
+
+<ul>
+    <li>\\(e^{i k x}\\) actúan como funciones base(ondas planas).</li>
+    <li>La función \\(\Phi(k)\\) representa los coeficientes de expansión.</li>
+</ul>
+
+<p>
+
+De esta forma, la función de onda se construye como una combinación ponderada de ondas elementales. Cada término \\(e^{i k x}\\) representa un estado con momento definido. La función \\(\Phi(k)\\) indica la amplitud con la que cada uno de estos estados contribuye a la superposición total.
+
+</p>
+
+<p>
+
+En términos probabilísticos:
+
+\\[
+|\Psi(x)|^2
+\\]
+
+representa la densidad de probabilidad de encontrar la partícula en la posición \\(x\\), mientras que
+
+\\[
+|\Phi(k)|^2
+\\]
+
+representa la distribución de probabilidad en el espacio de momentos.
+
+</p>
+
+<h3>Construcción del Paquete de Ondas</h3>
+
+<p>
+
+Se eligimos un paquete gaussiano para los coeficientes:
+
+\\[
+\Phi(k) = C\, e^{-\sigma_k^2 (k - k_0)^2}
+\\]
+
+</p>
+
+<p>
+
+la razon de escoger gaussiana es porque es una funcion suave y manejable matematicamente,su transformada es otra gaussiana, esto es importante porque significa que una gaussiana en el espaciio de los momento \\((k)\\) reproduce otra gaussiana en el espacio de posiciones \\((x)\\) y nos evita divergencias en los calculos, ademas de que tiene dispersion bien definida, util para analizar incertidumbre.
+
+</p>
+
+<p>
+
+El parámetro \\(\sigma_{k}^{2}\\) representa la varianza en el espacio de números de onda \\(k\\) o dicho de otro modo nos mide qué tan “extendida” está la función de onda en momento.
+
+</p>
+
+<p>
+
+El termino 
+
+\\[
+-\sigma_{k}^{2}\left(k-k_{0}\right)^{2}
+\\]
+
+en el exponente hace que \\(\Phi(k)\\) sea una gaussiana centrada en \\(k_{0}\\); el signo negativo garantiza que la función decaiga cuando \\(k\\) se aleja de \\(k_{0}\\).
+
+</p>
+
+<p>
+
+La cantidad \\(\sigma_{k}=\sqrt{\sigma_{k}^{2}}\\) mide la anchura de la distribución en el espacio de \\(k\\) y controla la localización en el espacio de posiciones \\(x\\).
+
+</p>
+
+<p>
+
+Lo cual podemos ver que la varianza es
+
+\\[
+\sigma_{k}^{2}=\left\langle\left(k-k_{0}\right)^{2}\right\rangle
+\\]
+
+</p>
+
+<p>
+
+Aquí \\(\sigma_{k}\\) tiene un comportamiento el cual:
+
+</p>
+
+<ul>
+    <li>Si \\(\sigma_{k}\\) es grande: la distribución en \\(k\\) es ancha entonces tenemos muchas componentes de onda y por ende la función en \\(x\\) es estrecha (partícula localizada).</li>
+
+    <li>Si \\(\sigma_{k}\\) es pequeña: la distribución en \\(k\\) es estrecha entonces momento bien definido y la función en \\(x\\) es ancha (partícula deslocalizada).</li>
+</ul>
+
+<p>
+
+Sustituyendo en la integral:
+
+\\[
+\Psi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} C\, e^{-\sigma_k^2 (k - k_0)^2} \, e^{ikx}\, dk
+\\]
+
+</p>
+
+<p>
+
+La constante \\(C\\) no depende de \\(k\\). Además, definimos el cambio de variable \\(q = k - k_0\\), por lo que \\(k = q + k_0\\) y \\(dk = dq\\). Los límites de integración no cambian.
+
+\\[
+\Psi(x) = \frac{C}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\sigma_k^2 q^2} \, e^{i(q + k_0)x}\, dq
+\\]
+
+</p>
+
+<p>
+
+Usamos la propiedad \\(e^{i(q + k_0)x} = e^{ik_0 x} \cdot e^{iqx}\\). El término \\(e^{ik_0 x}\\) no depende de \\(q\\), por lo que sale de la integral:
+
+\\[
+\Psi(x) = \frac{C}{\sqrt{2\pi}} e^{ik_0 x} \int_{-\infty}^{\infty} e^{-\sigma_k^2 q^2} \, e^{iqx}\, dq
+\\]
+
+</p>
+
+<p>
+
+Esta expresión muestra claramente que la función de onda se compone de dos factores:
+
+</p>
+
+<ol>
+    <li>Un término oscilatorio \\(e^{ik_0 x}\\), que fija el momento promedio.</li>
+
+    <li>Una integral que contiene una gaussiana en \\(q\\), responsable de la localización espacial(describe la envolvente espacial).</li>
+</ol>
+
+
+<h3>Evaluación de la integral gaussiana</h3>
+
+<p>
+
+El objetivo ahora es evaluar explícitamente la integral restante para obtener la forma espacial \\(\Psi(x)\\) y relacionar la dispersión en posición con la dispersión en número de onda.
+
+Llamemos a la integral \\(I(x)\\):
+
+\\[
+I(x) = \int_{-\infty}^{\infty} e^{-\sigma_k^2 q^2} e^{iqx}\, dq
+\\]
+
+</p>
+
+<p>
+
+Combinamos los exponentes:
+
+\\[
+I(x) = \int_{-\infty}^{\infty} \exp\left(-\sigma_k^2 q^2 + iqx\right)\, dq
+\\]
+
+</p>
+
+<p>
+
+\\textbf{Completar el cuadrado}
+
+</p>
+
+<p>
+
+El exponente es:
+
+\\[
+-\sigma_k^2 q^2 + iqx = -\sigma_k^2 \left(q^2 - \frac{i x}{\sigma_k^2} q \right)
+\\]
+
+</p>
+
+<p>
+
+Completamos el cuadrado dentro del paréntesis:
+
+\\[
+q^2 - \frac{i x}{\sigma_k^2} q = \left(q - \frac{i x}{2\sigma_k^2}\right)^2 - \frac{x^2}{4\sigma_k^4}
+\\]
+
+</p>
+
+<p>
+
+Sustituyendo esto de vuelta en el exponente general:
+
+\\[
+-\sigma_k^2 \left( \left(q - \frac{i x}{2\sigma_k^2}\right)^2 - \frac{x^2}{4\sigma_k^4} \right) = -\sigma_k^2 \left(q - \frac{i x}{2\sigma_k^2}\right)^2 + \frac{x^2}{4\sigma_k^2}
+\\]
+
+</p>
+
+<p>
+
+Por lo tanto, la integral se puede reescribir extrayendo la parte que no depende de \\(q\\):
+
+\\[
+I(x) = e^{-x^2/(4\sigma_k^2)} \int_{-\infty}^{\infty} e^{-\sigma_k^2 \left(q - \frac{i x}{2\sigma_k^2}\right)^2}\, dq
+\\]
+
+</p>
+
+<p>
+
+La integral resultante es de tipo gaussiano estándar \\(\int_{-\infty}^{\infty} e^{-a(q-b)^2}\, dq = \sqrt{\frac{\pi}{a}}\\). Aquí \\(a = \sigma_k^2\\), por lo que:
+
+\\[
+I(x) = \sqrt{\frac{\pi}{\sigma_k^2}}\, e^{-x^2/(4\sigma_k^2)}
+\\]
+
+</p>
+
+<p>
+
+\\textbf{Forma final de la función de onda}
+
+</p>
+
+<p>
+
+Sustituyendo \\(I(x)\\) de vuelta en la ecuación original para \\(\Psi(x)\\):
+
+\\[
+\Psi(x) = \frac{C}{\sqrt{2\pi}} e^{ik_0 x} \sqrt{\frac{\pi}{\sigma_k^2}} \, e^{-x^2/(4\sigma_k^2)}
+\\]
+
+</p>
+
+<p>
+
+Agrupando todas las constantes en una nueva constante de normalización \\(C'=C\frac{1}{\sqrt{2}\sigma_k}\\):
+
+\\[
+\Psi(x) = C'\, e^{ik_0 x} e^{-x^2/(4\sigma_k^2)}
+\\]
+
+</p>
+
+<p>
+
+La función resultante es una gaussiana centrada en x=0
+
+</p>
+
+<ul>
+    <li>La anchura espacial de la onda localizada es inversamente proporcional a la anchura en \\(k\\)-espacio, es decir, cuanto mayor \\(\sigma_{k}\\), más estrecha la gaussiana en \\(x\\).</li>
+
+    <li>La distribución en momento permanece centrada en \\(k_{0}\\) con dispersión \\(\sigma_{k}\\), y la probabilidad total se normaliza mediante la constante \\(C'\\).</li>
+</ul>
+
+
+<h3>Relación de Incertidumbre</h3>
+
+<p>
+
+Para hallar la dispersión espacial, calculamos la densidad de probabilidad usando:
+
+\\[
+|\Psi(x)|^2
+\\]
+
+</p>
+
+<p>
+
+\\[
+|\Psi(x)|^2 = |C'|^2 (e^{-x^2/(4\sigma_k^2))^2}
+\\]
+
+\\[
+|\Psi(x)|^2 = |C'|^2 e^{-x^2/(2\sigma_k^2)}
+\\]
+
+</p>
+
+<p>
+
+Esto es una distribución gaussiana en \\(x\\).
+
+El factor \\(e^{i k_{0} x}\\) tiene módulo igual a 1 , por lo que no contribuye a la densidad de probabilidad.
+
+</p>
+
+<p>
+
+Para determinar la constante de normalizacion, usamos
+
+\\[
+\int_{-\infty}^{\infty} |\Psi(x,t)|^2 dx = 1
+\\]
+
+</p>
+
+<p>
+
+\\[
+\left|C^{\prime}\right|^{2} \int_{-\infty}^{\infty} e^{-\frac{x^{2}}{2 \sigma_{k}^{2}}} d x=1
+\\]
+
+</p>
+
+<p>
+
+Esta es una integral gaussiana conocida:
+
+\\[
+\int_{-\infty}^{\infty} e^{-\frac{x^{2}}{2 \sigma^{2}}} d x=\sqrt{2 \pi} \sigma
+\\]
+
+</p>
+
+<p>
+
+obtendriamos:
+
+\\[
+\left|C^{\prime}\right|^{2} \sqrt{2 \pi} \sigma_{k}=1
+\\]
+
+</p>
+
+<p>
+
+usando despejando obtenesmos que:
+
+\\[
+\left|C^{\prime}\right|=(2 \pi)^{-1 / 4} \sigma_{k}^{-1 / 2}
+\\]
+
+</p>
+
+<p>
+
+por ende la densidad de probabilidad es:
+
+\\[
+|\Psi(x)|^{2}=\frac{1}{\sqrt{2 \pi} \sigma_{k}} e^{-\frac{x^{2}}{2 \sigma_{k}^{2}}}
+\\]
+
+</p>
+
+<p>
+
+Ahora de aquí se puede decir que la forma estándar de una gaussiana (en densidad de probabilidad) es:
+
+\\[
+\frac{1}{\sqrt{2 \pi} \sigma_{x}} e^{-\frac{x^{2}}{2 \sigma_{x}^{2}}}
+\\]
+
+</p>
+
+<p>
+
+comparandola con la expresion obtenida
+
+\\[
+\frac{1}{\sqrt{2 \pi} \sigma_{k}} e^{-\frac{x^{2}}{2 \sigma_{k}^{2}}} \quad \text { vs } \quad \frac{1}{\sqrt{2 \pi} \sigma_{x}} e^{-\frac{x^{2}}{2 \sigma_{x}^{2}}}
+\\]
+
+</p>
+
+<p>
+
+Podemos ver que:
+
+\\[
+\sigma_x=\sigma_k
+\\]
+
+</p>
+
+<p>
+
+por tanto:
+
+\\[
+\sigma_{x} \sigma_{k}=\sigma_{k}^{2}
+\\]
+
+</p>
+
+<p>
+
+Viendo que en la exponencial se puede verlo como
+
+\\[
+e^{-x^{2} /\left(2 \sigma_{x}^{2}\right)}
+\\]
+
+</p>
+
+<p>
+
+en esta parte podemos ver que el factor
+
+\\[
+\sigma_{x}=\frac{1}{2 \sigma_{k}}
+\\]
+
+</p>
+
+<p>
+
+cumple con una relación fundamental
+
+\\[
+\sigma_{x} \sigma_{k}=\frac{1}{2}
+\\]
+
+</p>
+
+<p>
+
+En mecánica cuántica las ondas planas \\(e^{i k x}\\) son autovectores del operador momento y su autovalor es \\(\hbar k\\). De ahí se obtiene la relación:
 
 \\[
 p=\hbar k
@@ -1340,10 +1720,55 @@ p=\hbar k
 
 <p>
 
-Para representar partículas localizadas,
-debemos construir paquetes de ondas
-mediante superposición de infinitas ondas planas
-usando la transformada de Fourier.
+que establece que el numero de onda \\(k\\) y el momento estan relacionados por el factor constatne \\(\hbar\\)
+
+</p>
+
+<p>
+
+Esta relación es la base para trasladar cualquier estadística (media, varianza) del espacio de \\(k\\) al espacio de momentos. Por esa razon si \\(\sigma_{k}\\) es la desviación estándar en \\(k\\), entonces la desviación estándar en el momento es
+
+\\[
+\sigma_{p}=\hbar \sigma_{k}
+\\]
+
+</p>
+
+<p>
+
+Multiplicando \\(\sigma_{x}\\) por \\(\sigma_{p}\\):
+
+\\[
+\sigma_{x} \sigma_{p}=\left(\frac{1}{2 \sigma_{k}}\right)\left(\hbar \sigma_{k}\right)=\frac{\hbar}{2}
+\\]
+
+</p>
+
+<p>
+
+Es decir:
+
+\\[
+\Delta x \Delta p=\frac{\hbar}{2}
+\\]
+
+</p>
+
+<p>
+
+Llegando finalmente a la relación de incertidumbre de HEISEMBERG, ahora Este resultado implica que:
+
+</p>
+
+<ul>
+    <li>No es posible reducir simultáneamente la dispersión en posición y en momento.</li>
+
+    <li>Esta limitación no depende del experimento, sino de la estructura matemática de la función de onda.</li>
+</ul>
+
+<p>
+
+Además, se implemento un método numérico el cual ayuda al lector a ver gráficamente como se comporta este principio
 
 </p>
 
